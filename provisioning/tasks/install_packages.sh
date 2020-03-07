@@ -10,7 +10,7 @@ if [[ $(id -u) -ne 0 ]] ; then
     exit 1
 fi
 
-echo "Installing common packages..."
+echo "Installing packages..."
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -18,6 +18,6 @@ apt-get update
 
 apt-get --yes \
         install curl \
-                ssh-client \
+                openssh-client \
                 htop \
                 software-properties-common
