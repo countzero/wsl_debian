@@ -19,12 +19,16 @@ The following tasks have been automated:
 Clone the *wsl_debian* repository to a nice place on your machine via:
 
 ```PowerShell
-git clone git@github.com:countzero/wsl_debian.git
+git clone git@github.com:countzero/wsl_debian.git C:\wsl_debian
 ```
 
 ### 2. Install the Windows Subsystem for Linux and Debian
 
-Execute the [`provisioning/install_wsl_debian.ps1`](https://github.com/countzero/wsl_debian/blob/master/provisioning/install_wsl_debian.ps1) PowerShell script with elevated rights.
+Execute the [`provisioning/install_wsl_debian.ps1`](https://github.com/countzero/wsl_debian/blob/master/provisioning/install_wsl_debian.ps1) PowerShell script:
+
+```PowerShell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\wsl_debian\provisioning\install_wsl_debian.ps1"
+```
 
 ### 3. Set up UNIX username and password
 
