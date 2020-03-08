@@ -24,7 +24,7 @@ git clone git@github.com:countzero/wsl_debian.git
 
 ### 2. Execute the installation script
 
-Execute the `[provisioning/install_wsl_debian.ps1](https://github.com/countzero/wsl_debian/blob/master/provisioning/install_wsl_debian.ps1)` PowerShell script with elevated rights.
+Execute the [`provisioning/install_wsl_debian.ps1`](https://github.com/countzero/wsl_debian/blob/master/provisioning/install_wsl_debian.ps1) PowerShell script with elevated rights.
 
 This will install the Windows Subsystem for Linux and the official Debian App.
 
@@ -46,7 +46,7 @@ Become the root user by executing the following within the Debian WSL context:
 sudo su -
 ```
 
-Then execute the [`provisioning/install_wsl_debian.ps1`](https://github.com/countzero/wsl_debian/blob/master/provisioning/provision_wsl_debian.sh) Bash script to provision the Debian installation:
+Then execute the [`provisioning/provision_wsl_debian.sh`](https://github.com/countzero/wsl_debian/blob/master/provisioning/provision_wsl_debian.sh) Bash script to provision the Debian installation:
 
 ```Bash
 bash /mnt/c/wsl_debian/provisioning/provision_wsl_debian.sh
