@@ -1,16 +1,16 @@
 # WSL Debian
 
-This project automates the installation and provisioning of the official Debian App for the Windows Subsystem for Linux.
+This project automates the installation and provisioning of the official Debian app for the Windows Subsystem for Linux.
 
 ## Automated tasks
 
 The following tasks have been automated:
 
  * Installation of the Windows Subsystem for Linux
- * Installation of the official Debian App
- * Distribution Upgrade from Debian 9 (Jessie) to Debian 10 (Buster)
+ * Installation of the official Debian app
+ * Distribution upgrade from Debian 9 (Jessie) to Debian 10 (Buster)
  * Installation of common packages
- * Configuration for all Debian users
+ * Configuration of all Debian users
 
 ## Installation
 
@@ -22,35 +22,25 @@ Clone the *wsl_debian* repository to a nice place on your machine via:
 git clone git@github.com:countzero/wsl_debian.git
 ```
 
-### 2. Install the Windows Subsystem for Linux and the official Debian App
+### 2. Install the Windows Subsystem for Linux and Debian
 
 Execute the [`provisioning/install_wsl_debian.ps1`](https://github.com/countzero/wsl_debian/blob/master/provisioning/install_wsl_debian.ps1) PowerShell script with elevated rights.
 
-### 3. Set up Debian user and password
+### 3. Set up UNIX username and password
 
-Define a Debian user and password upon the first start of the `debian` process.
+Define a UNIX username and password upon the first start of the `debian` process.
 
-**Hint:** The installation script should have launched the `debian` process automatically for you. You can always start it manually with the following:
+**Hint:** The installation script has launched the `debian` process automatically for you.
 
-```PowerShell
-Start-Process debian
-```
+### 4. Provision the Debian installation
 
-### 4. Excecute the provisioning script within Debian
-
-Become the root user by executing the following within the Debian WSL context:
+Execute the [`provisioning/provision_wsl_debian.sh`](https://github.com/countzero/wsl_debian/blob/master/provisioning/provision_wsl_debian.sh) Bash script as the `root` user within the `debian` app:
 
 ```Bash
-sudo su -
+sudo su - -c /mnt/c/wsl_debian/provisioning/provision_wsl_debian.sh
 ```
 
-Then execute the [`provisioning/provision_wsl_debian.sh`](https://github.com/countzero/wsl_debian/blob/master/provisioning/provision_wsl_debian.sh) Bash script to provision the Debian installation:
-
-```Bash
-bash /mnt/c/wsl_debian/provisioning/provision_wsl_debian.sh
-```
-
-## Uninstall
+## Uninstall (optional)
 
 ### Uninstall the Debian App
 
