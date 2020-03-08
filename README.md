@@ -22,11 +22,9 @@ Clone the *wsl_debian* repository to a nice place on your machine via:
 git clone git@github.com:countzero/wsl_debian.git
 ```
 
-### 2. Execute the installation script
+### 2. Install the Windows Subsystem for Linux and the official Debian App
 
 Execute the [`provisioning/install_wsl_debian.ps1`](https://github.com/countzero/wsl_debian/blob/master/provisioning/install_wsl_debian.ps1) PowerShell script with elevated rights.
-
-This will install the Windows Subsystem for Linux and the official Debian App.
 
 ### 3. Set up Debian user and password
 
