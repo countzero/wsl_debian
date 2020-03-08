@@ -1,6 +1,8 @@
 #Requires -RunAsAdministrator
 #Requires -Version 5.0
 
+$ErrorActionPreference = "Stop"
+
 #
 # This script installs the Windows Subsystem for
 # Linux (WSL) and the official Debian App.

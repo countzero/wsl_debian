@@ -13,15 +13,28 @@ fi
 # Resolve absolute path to parent directory of this script file.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-echo "Adding ls configuration..."
-yes | cp --force --verbose "${DIR}/../files/.dircolors" /root/.dircolors
+# Add configuration for every user to their specific home directory.
+user_directories="/root/ /home/*/"
 
-echo "Adding ssh configuration..."
-mkdir --parents --verbose /root/.ssh
+for user_directory in $user_directories ;
+do
 
-echo "Adding bash configuration..."
-yes | cp --force --verbose "${DIR}/../files/.bashrc" /root/.bashrc
+    user=$(basename "${user_directory}")
 
-echo "Adding htop configuration..."
-mkdir --parents --verbose /root/.config
-yes | cp --force --verbose "${DIR}/../files/htoprc" /root/.config/htoprc
+    echo "Adding configuration for the user '${user}'..."
+
+    echo "Adding ls configuration..."
+    runuser "${user}" -c "yes | cp -f -v \"${DIR}/../files/.dircolors\" \"${user_directory}.dircolors\""
+
+    echo "Adding ssh configuration..."
+    runuser "${user}" -c "mkdir -p -v \"${user_directory}.ssh\""
+    runuser "${user}" -c "yes | cp -f -v \"${DIR}/../files/ssh.config\" \"${user_directory}.ssh/config\""
+
+    echo "Adding bash configuration..."
+    runuser "${user}" -c "yes | cp -f -v \"${DIR}/../files/.bashrc\" \"${user_directory}.bashrc\""
+
+    echo "Adding htop configuration..."
+    runuser "${user}" -c "mkdir -p -v \"${user_directory}.config/htop\""
+    runuser "${user}" -c "yes | cp -f -v \"${DIR}/../files/htoprc\" \"${user_directory}.config/htop/htoprc\""
+
+done
