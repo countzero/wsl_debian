@@ -46,7 +46,7 @@ Become the root user by executing the following within the Debian WSL context:
 sudo su -
 ```
 
-Then execute the `[provisioning/install_wsl_debian.ps1](https://github.com/countzero/wsl_debian/blob/master/provisioning/provision_wsl_debian.sh)` Bash script to provision the Debian installation:
+Then execute the [`provisioning/install_wsl_debian.ps1`](https://github.com/countzero/wsl_debian/blob/master/provisioning/provision_wsl_debian.sh) Bash script to provision the Debian installation:
 
 ```Bash
 bash /mnt/c/wsl_debian/provisioning/provision_wsl_debian.sh
