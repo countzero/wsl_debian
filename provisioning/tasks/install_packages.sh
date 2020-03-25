@@ -20,4 +20,5 @@ apt-get --yes \
         install curl \
                 openssh-client \
                 htop \
+                mongo-tools \
                 software-properties-common
