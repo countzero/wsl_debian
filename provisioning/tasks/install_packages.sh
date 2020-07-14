@@ -12,6 +12,10 @@ fi
 
 echo "Installing packages..."
 
+# We are using the Ubuntu PPA to get the latest version of Ansible.
+echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" >> /etc/apt/sources.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get update
@@ -21,4 +25,5 @@ apt-get --yes \
                 openssh-client \
                 htop \
                 mongo-tools \
-                software-properties-common
+                software-properties-common \
+                ansible

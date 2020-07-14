@@ -144,3 +144,6 @@ if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
 fi
 
 unset env
+
+# We are using nano as the default editor.
+export EDITOR=nano
