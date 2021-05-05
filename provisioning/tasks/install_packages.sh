@@ -21,9 +21,10 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update
 
 apt-get --yes \
-        install curl \
-                openssh-client \
+        install ansible \
+                curl \
                 htop \
                 mongo-tools \
-                software-properties-common \
-                ansible
+                openssh-client \
+                postgresql-client \
+                software-properties-common
