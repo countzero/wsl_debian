@@ -20,7 +20,7 @@ upgrade_current_distribution () {
 
     export DEBIAN_FRONTEND=noninteractive
 
-    apt-get update
+    apt-get update --allow-releaseinfo-change
 
     apt-get --yes \
             --option Dpkg::Options::="--force-confdef" \

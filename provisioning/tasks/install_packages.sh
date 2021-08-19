@@ -18,7 +18,7 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 
 export DEBIAN_FRONTEND=noninteractive
 
-apt-get update
+apt-get update --allow-releaseinfo-change
 
 apt-get --yes \
         install curl \
