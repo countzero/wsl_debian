@@ -8,6 +8,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 echo "Provisioning WSL Debian App..."
 
-. "${DIR}/tasks/upgrade_to_debian_buster.sh"
+. "${DIR}/tasks/bootstrap.sh"
+. "${DIR}/tasks/upgrade_distribution.sh"
 . "${DIR}/tasks/install_packages.sh"
 . "${DIR}/tasks/add_configuration.sh"

@@ -12,24 +12,23 @@ fi
 
 echo "Installing packages..."
 
-# We are using the Ubuntu PPA to get the latest version of Ansible.
-echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" > /etc/apt/sources.list.d/ansible.list
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
-
 # We are using the official MongoDB repository to get the latest version of monogsh.
-echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" > /etc/apt/sources.list.d/mongodb.list
-wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add -
+wget -qO- "https://www.mongodb.org/static/pgp/server-5.0.asc" | \
+gpg --batch --yes --dearmor -o /usr/share/keyrings/mongodb-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/mongodb-archive-keyring.gpg] http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" > /etc/apt/sources.list.d/mongodb.list
 
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get update --allow-releaseinfo-change
 
 apt-get --yes \
-        install ansible \
+        install python3 \
+                python3-pip \
                 curl \
                 htop \
-                mongo-tools \
                 mongodb-mongosh \
                 openssh-client \
                 postgresql-client \
                 software-properties-common
+
+pip3 install ansible
