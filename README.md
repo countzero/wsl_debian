@@ -8,7 +8,7 @@ The following tasks have been automated:
 
  * Installation of the Windows Subsystem for Linux
  * Installation of the official Debian app
- * Distribution upgrade from Debian 9 (Jessie) to Debian 10 (Buster)
+ * Distribution upgrade of Debian
  * Installation of common packages
  * Configuration of all Debian users
 
