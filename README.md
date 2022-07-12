@@ -64,3 +64,25 @@ dism.exe /online `
          /featurename:Microsoft-Windows-Subsystem-Linux `
          /norestart
 ```
+
+## Troubleshooting
+
+### WSL2 is not working
+
+Please read the following ressources for up to date hints on what is causing the issue.
+
+- https://docs.microsoft.com/en-us/windows/wsl/troubleshooting
+- https://github.com/microsoft/WSL/issues/4930
+- https://www.spacedesk.net/de/forums/topic/wsl2-not-starting-after-spacedesk-installation/
+
+### WSL2 breaks VirtualBox 6.1
+
+VirtualBox 6.1 is still too slow to be usable with Hyper-V. Therefore currently you have to switch between WSL2 or VirtualBox development.
+
+- https://github.com/MicrosoftDocs/WSL/issues/798
+
+#### Enable/Disable Hyper-V
+
+Execute the `./tools/enable_hyper_v.ps1` or `./tools/disable_hyper_v.ps1` PowerShell scripts to quickly toggle the availability of Hyper-V.
+
+**Caution:** That scripts will automatically restart your machine.
