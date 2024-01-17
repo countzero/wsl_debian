@@ -6,7 +6,6 @@ set -e
 # Make sure this script is executed by a superuser account.
 if [[ $(id -u) -ne 0 ]] ; then
     echo "This script must be executed by a superuser account (UID=0), aborting!"
-
     exit 1
 fi
 

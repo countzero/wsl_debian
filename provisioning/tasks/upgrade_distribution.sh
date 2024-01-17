@@ -13,35 +13,35 @@ fi
 #
 # Automatically upgrades the current distribution.
 #
-# https://debian-handbook.info/browse/stable/sect.automatic-upgrades.html
-#
 upgrade_current_distribution () {
-    echo "Upgrading Debian $(cat /etc/debian_version)..."
+
+    echo "Upgrading current Debian distribition $(cat /etc/debian_version)..."
 
     export DEBIAN_FRONTEND=noninteractive
 
-    apt-get update --allow-releaseinfo-change
+    apt-get --allow-releaseinfo-change update
 
-    apt-get --yes \
-            --option Dpkg::Options::="--force-confdef" \
-            --option Dpkg::Options::="--force-confold" \
-            dist-upgrade
+    apt-get --yes full-upgrade
 
     apt-get --yes autoremove
 }
 
+STABLE_CODENAME=$(curl -s https://ftp.debian.org/debian/dists/stable/Release | grep -oP '(?<=Codename:\s)\S+')
+STABLE_VERSION=$(curl -s https://ftp.debian.org/debian/dists/stable/Release | grep -oP '(?<=Version:\s)\S+')
+
+echo "Upgrading Debian to the latest stable ${STABLE_VERSION} (${STABLE_CODENAME})."
+
 upgrade_current_distribution
 
-# We are importing the current Debian version details.
-. /etc/os-release
-
-echo "Switching '/etc/apt/sources.list' to Debian $VERSION_CODENAME..."
+echo "Switching '/etc/apt/sources.list' to Debian $STABLE_CODENAME..."
 
 cat << EOF > /etc/apt/sources.list
-deb http://deb.debian.org/debian $VERSION_CODENAME main
-deb http://deb.debian.org/debian $VERSION_CODENAME-updates main
-deb http://security.debian.org/debian-security $VERSION_CODENAME-security main
-deb http://ftp.debian.org/debian $VERSION_CODENAME-backports main
+deb http://deb.debian.org/debian $STABLE_CODENAME main
+deb http://deb.debian.org/debian $STABLE_CODENAME-updates main
+deb http://security.debian.org/debian-security $STABLE_CODENAME-security main
+deb http://ftp.debian.org/debian $STABLE_CODENAME-backports main
 EOF
 
 upgrade_current_distribution
+
+echo "Sucessfully upgraded to the latest stable Debian $(. /etc/os-release; echo $VERSION) distribution."

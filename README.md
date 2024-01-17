@@ -16,7 +16,7 @@ The following tasks have been automated:
 
 ### 1. Clone this repository
 
-Clone the *wsl_debian* repository to a nice place on your machine via:
+Clone the *wsl_debian* repository to a specific place on your machine via:
 
 ```PowerShell
 git clone git@github.com:countzero/wsl_debian.git C:\wsl_debian
@@ -34,15 +34,20 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\wsl_debian\provision
 
 Define a UNIX username and password upon the first start of the `debian` process.
 
-**Hint:** The installation script has launched the `debian` process automatically for you.
+> [!NOTE]
+> The installation script has launched the `debian` process automatically for you.
 
 ### 4. Provision the Debian installation
 
-Execute the [`provisioning/provision_wsl_debian.sh`](https://github.com/countzero/wsl_debian/blob/master/provisioning/provision_wsl_debian.sh) Bash script as the `root` user within the `debian` app:
+Execute the [`provisioning/provision_wsl_debian.sh`](https://github.com/countzero/wsl_debian/blob/master/provisioning/provision_wsl_debian.sh) Bash script as the `root` user within the `debian` distribution:
 
-```Bash
-sudo su - -c /mnt/c/wsl_debian/provisioning/provision_wsl_debian.sh
+```PowerShell
+wsl.exe --distribution debian --user root /mnt/c/wsl_debian/provisioning/provision_wsl_debian.sh
 ```
+
+> [!IMPORTANT]
+> Do _not_ use `sudo` within Debian to become `root` because that will cause the distribution
+> upgrade to fail: https://github.com/microsoft/WSL/issues/4279#issuecomment-1846822075
 
 ## Uninstall (optional)
 
@@ -67,7 +72,7 @@ dism.exe /online `
 
 ## Troubleshooting
 
-### WSL2 is not working
+### WSL 2 is not working
 
 Please read the following ressources for up to date hints on what is causing the issue.
 
@@ -75,9 +80,9 @@ Please read the following ressources for up to date hints on what is causing the
 - https://github.com/microsoft/WSL/issues/4930
 - https://www.spacedesk.net/de/forums/topic/wsl2-not-starting-after-spacedesk-installation/
 
-### WSL2 breaks VirtualBox 6.1
+### WSL 2 breaks VirtualBox
 
-VirtualBox 6.1 is still too slow to be usable with Hyper-V. Therefore currently you have to switch between WSL2 or VirtualBox development.
+VirtualBox is still too slow to be usable with Hyper-V. Therefore currently you have to switch between WSL 2 or VirtualBox development.
 
 - https://github.com/MicrosoftDocs/WSL/issues/798
 
@@ -85,4 +90,5 @@ VirtualBox 6.1 is still too slow to be usable with Hyper-V. Therefore currently 
 
 Execute the `./tools/enable_hyper_v.ps1` or `./tools/disable_hyper_v.ps1` PowerShell scripts to quickly toggle the availability of Hyper-V.
 
-**Caution:** That scripts will automatically restart your machine.
+> [!WARNING]
+> That scripts will automatically restart your machine.

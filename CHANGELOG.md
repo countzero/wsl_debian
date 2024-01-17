@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2024-01-17
+
+### Added
+
+- [Debian] Add support for the latest stable Debian version
+- [Debian] Add installation of mongodb-database-tools
+
 ## [2.0.0] - 2022-07-12
 
 ### Added
@@ -18,7 +25,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [WSL] Change default WSL version to 2
 - [WSL] Simplified initial installation of WSL2
-
 
 ## [1.0.0] - 2020-03-09
 
